@@ -13,6 +13,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useRouter } from 'next/navigation'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { authClient } from '@/lib/auth-client'
+import Image from 'next/image'
 
 const loginSchema =  z.object({
     email: z.string("Please enter a valid email address"),
@@ -62,8 +63,12 @@ export function LoginForm(){
                         <form onSubmit={form.handleSubmit(onSubmit)} className='flex flex-col gap-6'>
                             <div>
                                 <div className='flex flex-col gap-4'>
-                                    <Button variant='outline' className='w-full' >Continue with GitHub</Button>
-                                    <Button variant='outline' className='w-full' >Continue with Google</Button>
+                                    <Button variant='outline' className='w-full' >
+                                        <Image src='/github.svg' alt='GitHub Logo' width={20} height={20}/>
+                                        Continue with GitHub</Button>
+                                    <Button variant='outline' className='w-full' >
+                                        <Image src='/google.svg' alt='/Google Logo' width={20} height={20}/>
+                                        Continue with Google</Button>
                                 </div>
                             </div>
                             <div className='flex flex-col gap-6'>
